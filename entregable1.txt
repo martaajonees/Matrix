@@ -7,7 +7,7 @@ Durante este periodo, se ha desarrollado:
 
 Biblioteca OPMATRIX 
 - Cabeceras de las funciones explicadas y correctas
-- Funciones para sumar, restar, multiplicar y escalar de forma correcta
+- Funciones para sumar y restar.
 - Archivo de prueba "pruebaOPMATRIX.c" para testear el correcto funcionamiento del código
 
 Interfaz de usuario funcional
