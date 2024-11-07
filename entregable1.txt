@@ -2,7 +2,7 @@ Proyecto Matrix
 Entregable 1
 
 Durante este periodo, se ha desarrollado:
-	- Bibliotecas IOMATRIX
+	- Bibliotecas IOMATRIX y OPMATRIX
 	- Interfaz de usuario funcional
 
 Biblioteca OPMATRIX 
@@ -13,4 +13,8 @@ Biblioteca OPMATRIX
 Interfaz de usuario funcional
 - Inicialización de matrices
 - Estructura general de la Interfaz
+
+Biblioteca IOMATRIX
+- Leer matrices
+- Menú de bienvenida
 
