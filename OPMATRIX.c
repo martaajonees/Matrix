@@ -4,20 +4,27 @@
 #define N 5
 
 bool esCorrecto(int **A, int **B, int **R, bool esEscalar, bool esDivision, bool esSimetrica) {
-    if (!A || (!R && !esSimetrica)) {
-        printf("Error: No se han inicializado las matrices.\n");
-        return false; // Error encontrado
-    }
-    if (B == NULL && !esEscalar) {
-        printf("Error: La matriz B no está inicializada.\n");
-        return false;
-    }
-    if (esDivision) {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (B[i][j] == 0) {
-                    printf("Error: División por cero en la posición (%d, %d).\n", i, j);
-                    return false;
+    if(esSimetrica){
+        if (!A) {
+            printf("Error: No se ha inicializado la matriz.\n");
+            return false; // Error encontrado
+        }
+    } else {
+        if (!A || !R) {
+            printf("Error: No se han inicializado las matrices.\n");
+            return false; // Error encontrado
+        }
+        if (B == NULL && !esEscalar) {
+            printf("Error: La matriz B no está inicializada.\n");
+            return false;
+        }
+        if (esDivision) {
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    if (B[i][j] == 0) {
+                        printf("Error: División por cero en la posición (%d, %d).\n", i, j);
+                        return false;
+                    }
                 }
             }
         }
@@ -86,7 +93,7 @@ void transpuesta(int **A, int **R){
 
 int simetrica(int **A){
     int resultado = 1;
-    if (!esCorrecto(A, NULL, NULL, true, false, true)) return;
+    if (!esCorrecto(A, NULL, NULL, false, false, true)) return 0;
 
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){

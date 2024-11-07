@@ -10,6 +10,8 @@ void test_resta();
 void test_producto();
 void test_division();
 void test_escalar();
+void test_simetrica();
+void test_transpuesta();
 
 
 void assertEquals(int actual, int expected, const char* testName) {
@@ -26,6 +28,8 @@ int main() {
     test_producto();
     test_division();
     test_escalar();
+    test_simetrica();
+    test_transpuesta();
 
     return 0;
 }
@@ -118,7 +122,8 @@ void test_producto() {
     inicializarMatriz(B, 3);
     
     producto(A, B, R);
-    
+
+    printf("Resultado de producto cuando A=2 y B=3\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             assertEquals(R[i][j], 30, "producto"); // 2 * 3 * N = 30
@@ -151,13 +156,15 @@ void test_division() {
     
     division(A, B, R);
     
+    printf("Resultado de división cuando A=6 y B=3\n\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-            assertEquals(R[i][j], 2, "division");
+            assertEquals(R[i][j], 2, "division"); 
         }
     }
     
     // Caso de división por cero
+    printf("Resultado de división entre 0: debe dar error\n\n");
     B[0][0] = 0;
     division(A, B, R);
     
@@ -185,6 +192,7 @@ void test_escalar() {
     int escalar_valor = 2;
     escalar(A, escalar_valor, R);
     
+    printf("Resultado de escalar cuando A=4 y escalar=2\n\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             assertEquals(R[i][j], 8, "escalar");
@@ -207,7 +215,7 @@ void test_simetrica(){
     }
     
     inicializarMatriz(A, 4);
-    
+    printf("Resultado de simétrica\n\n");
     int resultado = simetrica(A);
     
     assertEquals(resultado, 1, "simetrica");
@@ -230,7 +238,7 @@ void test_transpuesta(){
     inicializarMatriz(A, 4);
     
     transpuesta(A, R);
-    
+    printf("Resultado de transpuesta\n\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             assertEquals(R[i][j], A[j][i], "transpuesta");
