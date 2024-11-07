@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "IOMATRIX.h"
 
 // Muestra un mensaje de bienvenida y el menú de opciones
@@ -17,9 +18,9 @@ void mostrarMenuBienvenida() {
 }
 
 // Permite al usuario cargar datos en una matriz desde la consola
-void cargarMatrizConsola(int **mat) {
+/* void cargarMatrizConsola(int **mat) {
     // Código para solicitar al usuario los valores de la matriz 5x5 e ingresarlos en `mat`
-}
+} */
 
 // Muestra los datos de una matriz en la consola en formato de tabla 5x5
 void mostrarMatriz(int **mat) {
@@ -34,7 +35,7 @@ void mostrarMatriz(int **mat) {
 }
 
 // Carga una matriz desde un archivo de texto especificado por el usuario
-int cargarMatrizArchivo(int **mat, const char *nombreArchivo) {
+int cargarMatrizArchivo(int **mat) {
      static FILE *archivo = NULL;  // Archivo abierto de forma estática para leer una vez
     char nombreArchivo[100];  // Buffer para almacenar el nombre del archivo
 
@@ -73,7 +74,7 @@ int cargarMatrizArchivo(int **mat, const char *nombreArchivo) {
 }
 
 // Guarda una matriz en un archivo de texto cuyo nombre es especificado por el usuario
-int guardarMatrizArchivo(int **mat, const char *nombreArchivo) {
+int guardarMatrizArchivo(int **mat) {
  char nombreArchivo[100];  // Buffer para almacenar el nombre del archivo
 
     // Solicitar al usuario que ingrese el nombre del archivo para guardar la matriz
