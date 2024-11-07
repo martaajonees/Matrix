@@ -23,12 +23,40 @@ int main() {
 
     printf("Bienvenido a la Calculadora de Matrices 5x5\n");
 
+    char nombreArchivo[100];
+
+    printf("Introduce el nombre del archivo para cargar las matrices (con extensión .txt): ");
+    scanf("%99s", nombreArchivo);
+
+    FILE *archivo = fopen(nombreArchivo, "r");
+    if (archivo == NULL)
+    {
+        gestionarError("Error: No se pudo abrir el archivo para lectura.");
+        return -1;
+    }
     
-    cargarMatrizArchivo(A);
-    registrarOperacion("Cargar Matriz");
-    cargarMatrizArchivo(B);
+    printf("Cargando la primera matriz (A)...\n");
+    if (cargarMatrizArchivo(A, archivo) != 0)
+    {
+        printf("Error al cargar la matriz A.\n");
+        fclose(archivo);
+        return -1;
+    }
     registrarOperacion("Cargar Matriz");
 
+    printf("Cargando la segunda matriz (B)...\n");
+    if (cargarMatrizArchivo(B, archivo) != 0) {
+        printf("Error al cargar la matriz B.\n");
+        fclose(archivo);
+        return -1;  // Si la carga de la matriz B falla, terminamos el programa
+    }
+
+    registrarOperacion("Cargar Matriz");
+
+    fclose(archivo);
+
+    mostrarMatriz(A);
+    mostrarMatriz(B);
     
 
     do {
