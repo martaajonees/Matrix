@@ -5,7 +5,8 @@
 #include<stdlib.h>
 #include<math.h>
 
-// Realiza la suma de dos matrices
+// Realiza la suma de dos matrices A y B, almacenando el 
+// resultado en la matriz R
 void suma(int **A, int** B, int **R);
 
 // Realiza la resta de dos matrices A y B, almacenando el 
