@@ -10,3 +10,7 @@ Biblioteca OPMATRIX
 - Funciones para sumar, restar, multiplicar y escalar de forma correcta
 - Archivo de prueba "pruebaOPMATRIX.c" para testear el correcto funcionamiento del código
 
+Interfaz de usuario funcional
+- Inicialización de matrices
+- Estructura general de la Interfaz
+
