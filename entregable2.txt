@@ -1,0 +1,10 @@
+Proyecto Matrix
+Semana 2
+
+Durante este periodo, se ha desarrollado:
+	- Bibliotecas IOMATRIX y OPMATRIX
+	- Interfaz de usuario funcional
+
+Biblioteca OPMATRIX 
+- Se han ampliado las funcionalidades con multiplicación, división y escalar.
+- función para el control de todos los errores que se puedan producir
