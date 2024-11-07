@@ -199,3 +199,49 @@ void test_escalar() {
     free(A);
     free(R);
 }
+
+void test_simetrica(){
+    int **A = (int **)malloc(N * sizeof(int *));
+    for (int i = 0; i < N; i++) {
+        A[i] = (int *)malloc(N * sizeof(int));
+    }
+    
+    inicializarMatriz(A, 4);
+    
+    int resultado = simetrica(A);
+    
+    assertEquals(resultado, 1, "simetrica");
+    
+    // Liberar memoria
+    for (int i = 0; i < N; i++) {
+        free(A[i]);
+    }
+    free(A);
+}
+
+void test_transpuesta(){
+    int **A = (int **)malloc(N * sizeof(int *));
+    int **R = (int **)malloc(N * sizeof(int *));
+    for (int i = 0; i < N; i++) {
+        A[i] = (int *)malloc(N * sizeof(int));
+        R[i] = (int *)malloc(N * sizeof(int));
+    }
+    
+    inicializarMatriz(A, 4);
+    
+    transpuesta(A, R);
+    
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            assertEquals(R[i][j], A[j][i], "transpuesta");
+        }
+    }
+    
+    // Liberar memoria
+    for (int i = 0; i < N; i++) {
+        free(A[i]);
+        free(R[i]);
+    }
+    free(A);
+    free(R);
+}

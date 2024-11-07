@@ -63,6 +63,22 @@ void escalar(int **A, int escalar, int **R);
  * @return true Si no se encontraron errores.
  * @return false Si se encontraron errores.
  */
-bool esCorrecto(int **A, int **B, int **R, bool esEscalar, bool esDivision);
+bool esCorrecto(int **A, int **B, int **R, bool esEscalar, bool esDivision, bool esSimetrica);
+
+/**
+ * @brief Calcula la transpuesta de una matriz cuadrada A de tamaño N x N.
+ * 
+ * @param A Matriz A (puntero doble).
+ * @param R Matriz resultante R (puntero doble).
+ */
+void transpuesta(int **A, int **R);
+
+/**
+ * @brief Muestra si la matriz A es simétrica o no. Devuelve 1 si es simétrica y 0 si no lo es.
+ * 
+ * @param A Matriz A (puntero doble).
+ * @param resultado Resultado de la operación.
+ */
+int simetrica(int **A);
 
 #endif // OPMATRIX_H

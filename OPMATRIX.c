@@ -3,13 +3,13 @@
 #include <stdbool.h>
 #define N 5
 
-bool esCorrecto(int **A, int **B, int **R, bool esEscalar, bool esDivision) {
-    if (!A || !R) {
+bool esCorrecto(int **A, int **B, int **R, bool esEscalar, bool esDivision, bool esSimetrica) {
+    if (!A || (!R && !esSimetrica)) {
         printf("Error: No se han inicializado las matrices.\n");
         return false; // Error encontrado
     }
     if (B == NULL && !esEscalar) {
-        printf("Error: La matriz B no está inicializada para la operación de división.\n");
+        printf("Error: La matriz B no está inicializada.\n");
         return false;
     }
     if (esDivision) {
@@ -26,7 +26,7 @@ bool esCorrecto(int **A, int **B, int **R, bool esEscalar, bool esDivision) {
 }
 
 void suma(int **A, int** B, int **R){
-    if (!esCorrecto(A, B, R, false, false)) return;
+    if (!esCorrecto(A, B, R, false, false, false)) return;
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
             R[i][j] = A[i][j] + B[i][j];
@@ -35,7 +35,7 @@ void suma(int **A, int** B, int **R){
 }
 
 void resta(int **A, int** B, int **R){
-    if (!esCorrecto(A, B, R, false, false)) return;
+    if (!esCorrecto(A, B, R, false, false, false)) return;
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
             R[i][j] = A[i][j] - B[i][j];
@@ -44,7 +44,7 @@ void resta(int **A, int** B, int **R){
 }
 
 void producto(int **A, int** B, int **R){
-    if (!esCorrecto(A, B, R, false, false)) return;
+    if (!esCorrecto(A, B, R, false, false, false)) return;
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
             R[i][j] = 0;
@@ -56,7 +56,7 @@ void producto(int **A, int** B, int **R){
 }
 
 void division(int **A, int** B, int **R){
-    if (!esCorrecto(A, B, R, false, true)) return;
+    if (!esCorrecto(A, B, R, false, true, false)) return;
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
             
@@ -67,11 +67,35 @@ void division(int **A, int** B, int **R){
 }
 
 void escalar(int **A, int escalar, int **R){
-    if (!esCorrecto(A, NULL, R, true, false)) return;
+    if (!esCorrecto(A, NULL, R, true, false, false)) return;
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
             R[i][j] = A[i][j] * escalar;
         }
     }
+}
+
+void transpuesta(int **A, int **R){
+    if (!esCorrecto(A, NULL, R, true, false, false)) return;
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            R[i][j] = A[j][i];
+        }
+    }
+}
+
+int simetrica(int **A){
+    int resultado = 1;
+    if (!esCorrecto(A, NULL, NULL, true, false, true)) return;
+
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            if(A[i][j] != A[j][i]){
+                resultado = 0;
+                break;
+            }
+        }
+    }
+    return resultado;
 }
 
