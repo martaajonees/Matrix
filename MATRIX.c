@@ -36,7 +36,7 @@ int main() {
     }
     
     printf("Cargando la primera matriz (A)...\n");
-    if (cargarMatrizArchivo(A, archivo) != 0)
+    if (cargarMatrizArchivo(A) != 0)
     {
         printf("Error al cargar la matriz A.\n");
         fclose(archivo);
@@ -45,7 +45,7 @@ int main() {
     registrarOperacion("Cargar Matriz");
 
     printf("Cargando la segunda matriz (B)...\n");
-    if (cargarMatrizArchivo(B, archivo) != 0) {
+    if (cargarMatrizArchivo(B) != 0) {
         printf("Error al cargar la matriz B.\n");
         fclose(archivo);
         return -1;  // Si la carga de la matriz B falla, terminamos el programa
