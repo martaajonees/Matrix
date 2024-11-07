@@ -11,7 +11,7 @@ Biblioteca OPMATRIX
 - Mejora del archivo de prueba 
 
 Biblioteca IOMATRIX
-- Modificado carga de matrices para que cargue matrices sucesivas.
+- Modificado carga de matrices pero falta modificación
 - Se ha creado fichero de carga de ejemplo
 - Finalizada la implementacion de IOmatrix.c
 - Se ha añadido un fichero para guardar el log de las operaciones
@@ -19,3 +19,4 @@ Biblioteca IOMATRIX
 Interfaz de usuario funcional
 - Añadir las funcionalidades para multiplicación, división y escalar.
 - Mejora general.
+- Funciona con matrices desde consola
