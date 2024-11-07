@@ -17,3 +17,5 @@ Biblioteca IOMATRIX
 - Se ha añadido un fichero para guardar el log de las operaciones
 
 Interfaz de usuario funcional
+- Añadir las funcionalidades para multiplicación, división y escalar.
+- Mejora general.
