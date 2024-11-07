@@ -31,27 +31,34 @@ void mostrarMatriz(int **mat) {
         for (int j = 0; j < TAMANO_MATRIZ; j++) {
             printf("%4d ", mat[i][j]);  // Imprime cada elemento con un ancho fijo para alineación
         }
-        printf("\n");  // Nueva línea después de cada fila
+        printf("\n");
     }
     printf("\n");
 }
 
 // Carga una matriz desde un archivo de texto especificado por el usuario
-int cargarMatrizArchivo(int **mat, FILE *archivo) {
-    for (int i = 0; i < TAMANO_MATRIZ; i++) {
-        for (int j = 0; j < TAMANO_MATRIZ; j++) {
-            if (fscanf(archivo, "%d", &mat[i][j]) != 1) {
-                // Si no se puede leer un número, significa que el archivo tiene formato incorrecto
-                if (feof(archivo)) {
-                    return -1;  // Retorna -1 si ya no hay más datos para cargar
-                } else {
-                    gestionarError("Error: Formato incorrecto en el archivo.");
-                    return -1;
-                }
+int cargarMatrizArchivo(int **mat) {
+    char nombreArchivo[100];
+
+    printf("Introduce el nombre del archivo para cargar la matriz: ");
+    scanf("%99s", nombreArchivo);
+
+    FILE* archivo = fopen(nombreArchivo, "r");
+    if(archivo == NULL){
+        printf("Error: No se pudo abrir el archivo para lectura.");
+        return -1;
+    }
+
+    for(int i = 0; i < TAMANO_MATRIZ; i++){
+        for(int j = 0; j < TAMANO_MATRIZ; j++){
+            if(fscanf(archivo, "%d", &mat[i][j]) != 1){
+                printf("Error: No se pudo leer un valor de la matriz.");
+                return -1;
             }
         }
     }
 
+    fclose(archivo);
     // Si la matriz se carga correctamente, retornar 0
     return 0;
 }
