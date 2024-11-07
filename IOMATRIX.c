@@ -9,7 +9,11 @@ void mostrarMenuBienvenida() {
     printf("Seleccione una opción: \n");
     printf("1. Sumar matrices\n");
     printf("2. Restar matrices\n");
-    printf("3. Salir\n");
+    printf("3. Producto matrices\n");
+    printf("4. División matrices\n");
+    printf("5. Producto escalar matrices\n");
+    printf("6. Guardar matriz en archivo\n");
+    printf("7. Salir\n");
 }
 
 // Permite al usuario cargar datos en una matriz desde la consola
@@ -31,24 +35,94 @@ void mostrarMatriz(int **mat) {
 
 // Carga una matriz desde un archivo de texto especificado por el usuario
 int cargarMatrizArchivo(int **mat, const char *nombreArchivo) {
-    // Código para abrir el archivo, leer los datos y cargar la matriz en `mat`
-    // Retorna 0 si tiene éxito o un código de error si falla
+  char nombreArchivo[100];  // Buffer para almacenar el nombre del archivo
+
+    // Solicitar al usuario que ingrese el nombre del archivo
+    printf("Introduce el nombre del archivo para cargar la matriz: ");
+    scanf("%99s", nombreArchivo);  // Limita el tamaño del nombre a 99 caracteres
+
+    // Intentar abrir el archivo en modo lectura
+    FILE *archivo = fopen(nombreArchivo, "r");
+    if (archivo == NULL) {
+        gestionarError("Error: No se pudo abrir el archivo para lectura.");
+        return -1;  // Retorna -1 si el archivo no se pudo abrir
+    }
+
+    // Leer los datos de la matriz desde el archivo
+    for (int i = 0; i < TAMANO_MATRIZ; i++) {
+        for (int j = 0; j < TAMANO_MATRIZ; j++) {
+            if (fscanf(archivo, "%d", &mat[i][j]) != 1) {
+                gestionarError("Error: Formato incorrecto en el archivo.");
+                fclose(archivo);
+                return -1;  // Retorna -1 si hay un problema en el formato del archivo
+            }
+        }
+    }
+
+    fclose(archivo);  // Cerrar el archivo
+    return 0;  // Retorna 0 si la matriz se cargó correctamente
 }
 
 // Guarda una matriz en un archivo de texto cuyo nombre es especificado por el usuario
 int guardarMatrizArchivo(int **mat, const char *nombreArchivo) {
-    // Código para abrir el archivo, escribir los datos de `mat` y guardar la matriz
-    // Retorna 0 si tiene éxito o un código de error si falla
+ char nombreArchivo[100];  // Buffer para almacenar el nombre del archivo
+
+    // Solicitar al usuario que ingrese el nombre del archivo para guardar la matriz
+    printf("Introduce el nombre del archivo para guardar la matriz: ");
+    scanf("%99s", nombreArchivo);  // Limita el tamaño del nombre a 99 caracteres
+
+    // Intentar abrir el archivo en modo escritura
+    FILE *archivo = fopen(nombreArchivo, "w");
+    if (archivo == NULL) {
+        gestionarError("Error: No se pudo abrir el archivo para escritura.");
+        return -1;  // Retorna -1 si el archivo no se pudo abrir
+    }
+
+    // Escribir los datos de la matriz en el archivo
+    for (int i = 0; i < TAMANO_MATRIZ; i++) {
+        for (int j = 0; j < TAMANO_MATRIZ; j++) {
+            fprintf(archivo, "%d ", mat[i][j]);  // Escribe cada valor seguido de un espacio
+        }
+        fprintf(archivo, "\n");  // Nueva línea después de cada fila
+    }
+
+    fclose(archivo);  // Cierra el archivo
+    return 0;  // Retorna 0 si la matriz se guardó correctamente
 }
 
 // Registra una operación en un archivo log
 int registrarOperacion(const char *operacion) {
-    // Código para abrir el archivo de log, escribir la operación y cerrarlo
-    // Retorna 0 si tiene éxito o un código de error si falla
+    FILE *archivo = fopen("log_operaciones.txt", "a");  // Abre el archivo en modo adición
+
+    if (archivo == NULL) {
+        gestionarError("Error: No se pudo abrir el archivo de log.");
+        return -1;  // Retorna -1 si el archivo no se pudo abrir
+    }
+
+    // Obtener la hora actual
+    time_t tiempoActual = time(NULL);
+    struct tm *infoTiempo = localtime(&tiempoActual);
+
+    // Escribir la marca de tiempo y la operación en el archivo de log
+    fprintf(archivo, "[%02d-%02d-%04d %02d:%02d:%02d] %s\n",
+            infoTiempo->tm_mday,
+            infoTiempo->tm_mon + 1,
+            infoTiempo->tm_year + 1900,
+            infoTiempo->tm_hour,
+            infoTiempo->tm_min,
+            infoTiempo->tm_sec,
+            operacion);
+
+    fclose(archivo);  // Cierra el archivo
+    return 0;  // Retorna 0 si la operación fue registrada correctamente
 }
 
 // Muestra un mensaje de error específico
 void gestionarError(const char *mensajeError) {
-    // Código para mostrar el mensaje de error en la consola
+    // Imprime el mensaje de error en la consola
+    fprintf(stderr, "ERROR: %s\n", mensajeError);
+
+    // Termina la ejecución del programa
+    exit(EXIT_FAILURE);
 }
 
