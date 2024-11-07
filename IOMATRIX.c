@@ -5,6 +5,10 @@
 // Muestra un mensaje de bienvenida y el menú de opciones
 void mostrarMenuBienvenida() {
     // Código para mostrar el menú de bienvenida en pantalla
+    printf("\n--- Calculadora de Matrices 5x5 ---\n");
+    printf("Seleccione una opción: \n");
+    printf("1. Sumar matrices\n");
+    printf("2. Salir\n");
 }
 
 // Permite al usuario cargar datos en una matriz desde la consola

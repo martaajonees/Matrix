@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "IOMATRIX.h"
-#include "OPMATRIX.h"
+#include "IOMATRIX.c"
+#include "OPMATRIX.c"
 
 #define SIZE 5
 
