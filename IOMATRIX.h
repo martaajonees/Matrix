@@ -14,7 +14,7 @@ void cargarMatrizConsola(int **mat);                    // Cargar datos en una m
 void mostrarMatriz(int **mat);                          // Mostrar una matriz en la consola
 
 // Funciones para trabajar con archivos
-int cargarMatrizArchivo(int **mat, FILE *archivo); // Cargar matriz desde un archivo
+int cargarMatrizArchivo(int **mat); // Cargar matriz desde un archivo
 int guardarMatrizArchivo(int **mat); // Guardar matriz en un archivo
 
 // Función para registrar eventos en el log de operaciones
