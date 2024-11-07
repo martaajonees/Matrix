@@ -79,11 +79,28 @@ int main() {
                 registrarOperacion("Escalar");
                 break;
             
-            case 6:
+            case 8:
                 guardarMatrizArchivo(R);
                 registrarOperacion("Guardar Matriz Resultado");
                 break;
             case 7:
+                mostrarMatriz(A);
+                transpuesta(A, R);
+                mostrarMatriz(R);
+                registrarOperacion("Traspuesta");
+                break;
+            
+                
+            case 6:
+                mostrarMatriz(A);
+                if(simetrica(A) == 1){
+                    printf("La matriz es simétrica\n");
+                }else{
+                    printf("La matriz no es simétrica\n");
+                }
+                registrarOperacion("Simetrica");
+                break;
+            case 9:
                 printf("Saliendo del programa...\n");
                 for (int i = 0; i < SIZE; i++) {
                     free(A[i]);
@@ -94,11 +111,12 @@ int main() {
                 free(B);
                 free(R);
                 break;
+
             
             default:
                 printf("Opción no válida.\n");
                 break;
         }
-    } while(opcion != 7);
+    } while(opcion != 9);
     return 0;
 }
