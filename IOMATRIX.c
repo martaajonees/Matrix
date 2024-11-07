@@ -14,7 +14,15 @@ void cargarMatrizConsola(Matriz *mat) {
 
 // Muestra los datos de una matriz en la consola
 void mostrarMatriz(const Matriz *mat) {
-    // Código para mostrar los valores de la matriz en la pantalla
+        printf("Resultado de la operación:\n");
+
+    for (int i = 0; i < TAMANO_MATRIZ; i++) {
+        for (int j = 0; j < TAMANO_MATRIZ; j++) {
+            printf("%4d ", mat->datos[i][j]);  // Imprime cada elemento con un ancho fijo para alinear columnas
+        }
+        printf("\n");  // Nueva línea después de cada fila
+    }
+    printf("\n");
 }
 
 // Carga una matriz desde un archivo de texto especificado por el usuario
