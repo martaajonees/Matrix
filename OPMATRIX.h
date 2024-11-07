@@ -5,23 +5,49 @@
 #include<stdlib.h>
 #include<math.h>
 
-// Realiza la suma de dos matrices A y B, almacenando el 
-// resultado en la matriz R
+/**
+ * @brief Suma dos matrices cuadradas A y B de tamaño N x N.
+ * 
+ * @param A Matriz A (puntero doble).
+ * @param B Matriz B (puntero doble).
+ * @param R Matriz resultante R (puntero doble).
+ */
 void suma(int **A, int** B, int **R);
 
-// Realiza la resta de dos matrices A y B, almacenando el 
-// resultado en la matriz R
+/**
+ * @brief Resta la matriz B de la matriz A de tamaño N x N.
+ * 
+ * @param A Matriz A (puntero doble).
+ * @param B Matriz B (puntero doble).
+ * @param R Matriz resultante R (puntero doble).
+ */
 void resta(int **A, int** B, int **R);
 
-// Realiza el producto de dos matrices A y B, almacenando el 
-// resultado en la matriz R
+/**
+ * @brief Multiplica las matrices A y B de tamaño N x N.
+ * 
+ * @param A Matriz A (puntero doble).
+ * @param B Matriz B (puntero doble).
+ * @param R Matriz resultante R (puntero doble).
+ */
 void producto(int **A, int** B, int **R);
 
-// Realiza la división de dos matrices A y B, almacenando el 
-// resultado en la matriz R
+/**
+ * @brief Divide elemento por elemento la matriz A entre la matriz B de tamaño N x N.
+ * 
+ * @param A Matriz A (puntero doble).
+ * @param B Matriz B (puntero doble).
+ * @param R Matriz resultante R (puntero doble).
+ */
+
 void division(int **A, int** B, int **R);
 
-// Realiza el producto escalar de dos matrices A y B, almacenando el 
-// resultado en la matriz R
+/**
+ * @brief Multiplica cada elemento de la matriz A por un valor escalar.
+ * 
+ * @param A Matriz A (puntero doble).
+ * @param escalar Valor escalar por el que se multiplicará cada elemento de A.
+ * @param R Matriz resultante R (puntero doble).
+ */
 void escalar(int **A, int escalar, int **R);
 #endif // OPMATRIX_H
