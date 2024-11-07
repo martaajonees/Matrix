@@ -53,7 +53,7 @@ void test_suma() {
     inicializarMatriz(B, 3);
     
     suma(A, B, R);
-    
+    printf("Resultado de suma cuando A=2 y B=3\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             assertEquals(R[i][j], 5, "suma");
@@ -85,7 +85,8 @@ void test_resta() {
     inicializarMatriz(B, 3);
     
     resta(A, B, R);
-    
+
+    printf("Resultado de resta cuando A=5 y B=3\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             assertEquals(R[i][j], 2, "resta");

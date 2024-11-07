@@ -7,4 +7,13 @@ Durante este periodo, se ha desarrollado:
 
 Biblioteca OPMATRIX 
 - Se han ampliado las funcionalidades con multiplicación, división y escalar.
-- función para el control de todos los errores que se puedan producir
+- Función para el control de todos los errores que se puedan producir
+- Mejora del archivo de prueba 
+
+Biblioteca IOMATRIX
+- Modificado carga de matrices para que cargue matrices sucesivas.
+- Se ha creado fichero de carga de ejemplo
+- Finalizada la implementacion de IOmatrix.c
+- Se ha añadido un fichero para guardar el log de las operaciones
+
+Interfaz de usuario funcional
