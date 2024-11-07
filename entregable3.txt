@@ -1,0 +1,16 @@
+Proyecto Matrix
+Semana 3
+
+Durante este periodo, hemos desarrollado:
+    - Bibiliotecas IOMATRIX y OPMATRIX
+    - Interfaz de usuario
+
+    Biblioteca IOMATRIX
+        - Testeadas las funcionalidades para la permanecia de datos
+
+    Biblioteca OPMATRIX
+        - Añadida función para el calculo de la matriz inversa 
+        - Añadida función para el calculo de la matriz traspuesta
+
+    Interfaz de usuario
+        - Añadida la capacidad de trabajar con ficheros mediante las bibliotecas menciondas
