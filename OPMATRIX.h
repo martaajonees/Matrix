@@ -4,6 +4,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+#include <stdbool.h>
 
 /**
  * @brief Suma dos matrices cuadradas A y B de tamaño N x N.
@@ -50,4 +51,18 @@ void division(int **A, int** B, int **R);
  * @param R Matriz resultante R (puntero doble).
  */
 void escalar(int **A, int escalar, int **R);
+
+/**
+ * @brief Verifica cualquier error que pueda provocar un mal funcionamiento de las operaciones.
+ * 
+ * @param A Matriz A (puntero doble).
+ * @param B Matriz B (puntero doble).
+ * @param R Matriz resultante R (puntero doble).
+ * @param esEscalar Indica si la operación es una multiplicación por escalar.
+ * @param esDivision Indica si la operación es una división.
+ * @return true Si no se encontraron errores.
+ * @return false Si se encontraron errores.
+ */
+bool esCorrecto(int **A, int **B, int **R, bool esEscalar, bool esDivision);
+
 #endif // OPMATRIX_H
