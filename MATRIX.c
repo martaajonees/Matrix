@@ -7,10 +7,14 @@
 
 int main() {
     int opcion;
-    int **A = (int**)malloc(SIZE * sizeof(int*));
-    int **B = (int**)malloc(SIZE * sizeof(int*));
+    int **A = (int **)malloc(SIZE * sizeof(int *));
+    int **B = (int **)malloc(SIZE * sizeof(int *));
     int **R = (int**)malloc(SIZE * sizeof(int*));
     int escala;
+    for (int i = 0; i < TAMANO_MATRIZ; i++) {
+        A[i] = (int *)malloc(TAMANO_MATRIZ * sizeof(int));
+        B[i] = (int *)malloc(TAMANO_MATRIZ * sizeof(int));
+    }
 
     for (int i = 0; i < SIZE; i++)
     {
@@ -25,7 +29,6 @@ int main() {
 
     
     cargarMatrizArchivo(A);
-    
     mostrarMatriz(A);
     cargarMatrizArchivo(B);
     mostrarMatriz(B);
