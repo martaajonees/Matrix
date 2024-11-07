@@ -1,0 +1,12 @@
+Proyecto Matrix
+Entregable 1
+
+Durante este periodo, se ha desarrollado:
+	- Bibliotecas IOMATRIX
+	- Interfaz de usuario funcional
+
+Biblioteca OPMATRIX 
+- Cabeceras de las funciones explicadas y correctas
+- Funciones para sumar, restar, multiplicar y escalar de forma correcta
+- Archivo de prueba "pruebaOPMATRIX.c" para testear el correcto funcionamiento del código
+

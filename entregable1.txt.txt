@@ -1,3 +1,0 @@
-Durante esta entrega, se ha desarrollado:
-	- Bibliotecas IOMATRIX y OPMATRIX
-	- Interfaz de usuario funcional
