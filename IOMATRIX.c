@@ -8,7 +8,8 @@ void mostrarMenuBienvenida() {
     printf("\n--- Calculadora de Matrices 5x5 ---\n");
     printf("Seleccione una opción: \n");
     printf("1. Sumar matrices\n");
-    printf("2. Salir\n");
+    printf("2. Restar matrices\n");
+    printf("3. Salir\n");
 }
 
 // Permite al usuario cargar datos en una matriz desde la consola
@@ -18,7 +19,7 @@ void cargarMatrizConsola(int **mat) {
 
 // Muestra los datos de una matriz en la consola en formato de tabla 5x5
 void mostrarMatriz(int **mat) {
-    printf("Contenido de la matriz 5x5:\n");
+    
     for (int i = 0; i < TAMANO_MATRIZ; i++) {
         for (int j = 0; j < TAMANO_MATRIZ; j++) {
             printf("%4d ", mat[i][j]);  // Imprime cada elemento con un ancho fijo para alineación

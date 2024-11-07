@@ -35,8 +35,12 @@ int main() {
                 suma(A, B, R);
                 mostrarMatriz(R);
                 break;
-
+            
             case 2:
+                resta(A, B, R);
+                mostrarMatriz(R);
+                break;
+            case 3:
                 printf("Saliendo del programa...\n");
                 for (int i = 0; i < SIZE; i++) {
                     free(A[i]);
@@ -52,6 +56,6 @@ int main() {
                 printf("Opción no válida.\n");
                 break;
         }
-    } while(opcion != 2);
+    } while(opcion != 3);
     return 0;
 }
