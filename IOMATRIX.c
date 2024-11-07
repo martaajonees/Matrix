@@ -4,21 +4,20 @@
 
 // Muestra un mensaje de bienvenida y el menú de opciones
 void mostrarMenuBienvenida() {
-    // Código para mostrar el menú en pantalla
+    // Código para mostrar el menú de bienvenida en pantalla
 }
 
 // Permite al usuario cargar datos en una matriz desde la consola
-void cargarMatrizConsola(Matriz *mat) {
-    // Código para leer los valores de la matriz desde la entrada estándar
+void cargarMatrizConsola(int **mat) {
+    // Código para solicitar al usuario los valores de la matriz 5x5 e ingresarlos en `mat`
 }
 
-// Muestra los datos de una matriz en la consola
-void mostrarMatriz(const Matriz *mat) {
-        printf("Resultado de la operación:\n");
-
+// Muestra los datos de una matriz en la consola en formato de tabla 5x5
+void mostrarMatriz(int **mat) {
+    printf("Contenido de la matriz 5x5:\n");
     for (int i = 0; i < TAMANO_MATRIZ; i++) {
         for (int j = 0; j < TAMANO_MATRIZ; j++) {
-            printf("%4d ", mat->datos[i][j]);  // Imprime cada elemento con un ancho fijo para alinear columnas
+            printf("%4d ", mat[i][j]);  // Imprime cada elemento con un ancho fijo para alineación
         }
         printf("\n");  // Nueva línea después de cada fila
     }
@@ -26,14 +25,14 @@ void mostrarMatriz(const Matriz *mat) {
 }
 
 // Carga una matriz desde un archivo de texto especificado por el usuario
-int cargarMatrizArchivo(Matriz *mat, const char *nombreArchivo) {
-    // Código para abrir el archivo, leer los datos y cargar la matriz
+int cargarMatrizArchivo(int **mat, const char *nombreArchivo) {
+    // Código para abrir el archivo, leer los datos y cargar la matriz en `mat`
     // Retorna 0 si tiene éxito o un código de error si falla
 }
 
 // Guarda una matriz en un archivo de texto cuyo nombre es especificado por el usuario
-int guardarMatrizArchivo(const Matriz *mat, const char *nombreArchivo) {
-    // Código para abrir el archivo, escribir los datos y guardar la matriz
+int guardarMatrizArchivo(int **mat, const char *nombreArchivo) {
+    // Código para abrir el archivo, escribir los datos de `mat` y guardar la matriz
     // Retorna 0 si tiene éxito o un código de error si falla
 }
 
@@ -47,3 +46,4 @@ int registrarOperacion(const char *operacion) {
 void gestionarError(const char *mensajeError) {
     // Código para mostrar el mensaje de error en la consola
 }
+
