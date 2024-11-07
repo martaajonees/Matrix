@@ -35,32 +35,41 @@ void mostrarMatriz(int **mat) {
 
 // Carga una matriz desde un archivo de texto especificado por el usuario
 int cargarMatrizArchivo(int **mat, const char *nombreArchivo) {
-  char nombreArchivo[100];  // Buffer para almacenar el nombre del archivo
+     static FILE *archivo = NULL;  // Archivo abierto de forma estática para leer una vez
+    char nombreArchivo[100];  // Buffer para almacenar el nombre del archivo
 
-    // Solicitar al usuario que ingrese el nombre del archivo
-    printf("Introduce el nombre del archivo para cargar la matriz: ");
-    scanf("%99s", nombreArchivo);  // Limita el tamaño del nombre a 99 caracteres
-
-    // Intentar abrir el archivo en modo lectura
-    FILE *archivo = fopen(nombreArchivo, "r");
+    // Si el archivo no está abierto, pedir al usuario el nombre del archivo y abrirlo
     if (archivo == NULL) {
-        gestionarError("Error: No se pudo abrir el archivo para lectura.");
-        return -1;  // Retorna -1 si el archivo no se pudo abrir
+        printf("Introduce el nombre del archivo para cargar las matrices: ");
+        scanf("%99s", nombreArchivo);  // Limita el tamaño del nombre a 99 caracteres
+
+        archivo = fopen(nombreArchivo, "r");  // Abre el archivo en modo lectura
+        if (archivo == NULL) {
+            gestionarError("Error: No se pudo abrir el archivo para lectura.");
+            return -1;
+        }
     }
 
     // Leer los datos de la matriz desde el archivo
     for (int i = 0; i < TAMANO_MATRIZ; i++) {
         for (int j = 0; j < TAMANO_MATRIZ; j++) {
             if (fscanf(archivo, "%d", &mat[i][j]) != 1) {
-                gestionarError("Error: Formato incorrecto en el archivo.");
-                fclose(archivo);
-                return -1;  // Retorna -1 si hay un problema en el formato del archivo
+                // Si no se puede leer un número, significa que se han agotado las matrices en el archivo
+                if (feof(archivo)) {
+                    fclose(archivo);  // Cierra el archivo cuando se alcance el final
+                    archivo = NULL;    // Resetea el puntero a NULL para que la próxima vez pida el archivo de nuevo
+                    return -1;  // Retorna -1 si ya no hay más matrices que cargar
+                } else {
+                    gestionarError("Error: Formato incorrecto en el archivo.");
+                    fclose(archivo);
+                    return -1;
+                }
             }
         }
     }
 
-    fclose(archivo);  // Cerrar el archivo
-    return 0;  // Retorna 0 si la matriz se cargó correctamente
+    // Si la matriz se carga correctamente, retornar 0
+    return 0;
 }
 
 // Guarda una matriz en un archivo de texto cuyo nombre es especificado por el usuario
